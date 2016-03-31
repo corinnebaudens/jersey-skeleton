@@ -7,6 +7,15 @@ public class Plat {
 	private int id;
 	private int quantitePart;
 	
+	public Plat() {}
+	
+	public Plat(String nom, String cuisinier, int id, int quantitePart) {
+		this.nom = nom;
+		this.cuisinier = cuisinier;
+		this.id = id;
+		this.quantitePart = quantitePart;
+	}
+	
 	public String getNom() {
 		return nom;
 	}
