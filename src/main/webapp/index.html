@@ -1,62 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Les Petits Cuistots</title>
-    <meta charset='utf-8'>
-    <!-- jQuery -->
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<title>Les Petits Cuistots</title>
+<meta charset='utf-8'>
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- bootstrap -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-    <!-- Code local -->
-    <script src="all.js"></script>
+<!-- Code local -->
+<script src="all.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Javascript (Single Page Application)</a></li>
-            <li><a href="/html/user">MVC Template (jsp)</a></li>
-        </ul>
-    </div>
-</nav>
-<div class="container">
-  <div class="jumbotron">
-    <h1>Les Petits Cuistots</h1>
-    <p>Commander et Emporter des plats cuisinés, prépaprés par des particuliers passionnés par la cuisine</p>
-  </div>
- <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="user">Liste des plats : </label>
-                <select>
-				  <option id="choisir" value="choisir">Choisissez un plat</option>
-				  <option id="plat1" value="plat1">Plat1</option>
-				  <option id="plat2" value="plat2">Plat3</option>
-				  <option id="plat3" value="plat3">Plat3</option>
-				</select>
-  
-            </div>
-            
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="userdb">Déposer un plat </label>
-                <input type="text" name="platdb" id="platdb" placeholder="Nom du plat" class="form-control"/>
-                <label for="imgPlat">Upload l'image du plat :</label> <input type="file" name="imagePlat" id="imagePlat" /><br />
-            </div>
-            <div class="btn-group" role="group">
-                <button id="post-bdd" class="btn btn-primary">Valider</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--
+	<nav class="navbar navbar-default">
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Javascript (Single Page
+						Application)</a></li>
+				<li><a href="/html/user">MVC Template (jsp)</a></li>
+			</ul>
+		</div>
+	</nav>
 	<div class="container">
+		<div class="jumbotron">
+			<h1>Les Petits Cuistots</h1>
+			<p>Commander et Emporter des plats cuisinés, prépaprés par des
+				particuliers passionnés par la cuisine</p>
+		</div>
+		<br>
+		<div class="row">
+		
+			<div class="col-md-6">
+				<div class="btn-group" role="group">
+					<button id="post-bdd" class="btn btn-primary">Créer utilisateur</button>
+				</div>
+			</div>
+		</div>
+		</br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="user">Login utilisateur</label><input type="text"
+						name="userdb" id="platdb" placeholder="Login utilisateur"
+						class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="userdb">Mot de passe utilisateur</label><input
+						type="text" name="platdb" id="platdb"
+						placeholder="Mot de passe utilisateur" class="form-control" />
+				</div>
+				<div class="btn-group" role="group">
+					<button id="read-forall" class="btn btn-primary">Valider</button>
+				</div>
+			</div>
+		</div>
+		</br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="user">Liste des plats : </label> <select>
+						<option id="choisir" value="choisir">Choisissez un plat</option>
+						<option id="plat1" value="plat1">Plat1</option>
+						<option id="plat2" value="plat2">Plat3</option>
+						<option id="plat3" value="plat3">Plat3</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="userdb">Déposer un plat </label> <input type="text"
+						name="platdb" id="platdb" placeholder="Nom du plat"
+						class="form-control" /> <label for="imgPlat">Upload
+						l'image du plat :</label> <input type="file" name="imagePlat"
+						id="imagePlat" /><br />
+				</div>
+				<div class="btn-group" role="group">
+					<button id="post-bdd" class="btn btn-primary">Valider</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!--<div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -95,7 +130,7 @@
             <button id="read-byannotation" class="btn btn-default">Lire /v1/secure/byannotation</button>
         </div>
     </div>
-    <div class="row" style="margin-top: 1em;">
+     <div class="row" style="margin-top: 1em;">
         <div class="panel panel-info">
             <div class="panel-heading">Réponse</div>
             <div class="panel-body" id="reponse">
@@ -103,18 +138,37 @@
         </div>
     </div>
 -->
-    <script type="text/javascript">
-			$(document).ready(function() {
-				$("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
-				$("#post-ram").click(function () {postUser($('#user').val(), $('#alias').val())});
-				$("#list-ram").click(function () {listUsers()});
-				$("#get-bdd").click(function () {getUserBdd($('#userdb').val(), $('#aliasdb').val())});
-				$("#post-bdd").click(function () {postUserBdd($('#userdb').val(), $('#aliasdb').val(), $('#passwddb').val())});
-				$("#list-bdd").click(function () {listUsersBdd()});
-				$("#read-forall").click(function () {getForAll()});
-				$("#read-byannotation").click(function () {getByAnnotation()});
-			});
-    </script>
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					$("#get-ram").click(function() {
+						getUser($('#user').val(), $('#alias').val())
+					});
+					$("#post-ram").click(function() {
+						postUser($('#user').val(), $('#alias').val())
+					});
+					$("#list-ram").click(function() {
+						listUsers()
+					});
+					$("#get-bdd").click(function() {
+						getUserBdd($('#userdb').val(), $('#aliasdb').val())
+					});
+					$("#post-bdd").click(
+							function() {
+								postUserBdd($('#userdb').val(), $('#aliasdb')
+										.val(), $('#passwddb').val())
+							});
+					$("#list-bdd").click(function() {
+						listUsersBdd()
+					});
+					$("#read-forall").click(function() {
+						getForAll()
+					});
+					$("#read-byannotation").click(function() {
+						getByAnnotation()
+					});
+				});
+	</script>
 
 </body>
 </html>
