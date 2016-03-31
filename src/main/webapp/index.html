@@ -46,7 +46,9 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="userdb">Déposer un plat </label>
-                <input type="text" name="plat" id="plat" placeholder="Nom du plat" class="form-control"/>
+                <input type="text" name="nom" id="nom" placeholder="Nom du plat" class="form-control"/>
+                <input type="text" name="cuisinier" id="cuisinier" placeholder="Nom du cuisinier" class="form-control"/>
+                <input type="text" name="quantitePart" id="quantitePart" placeholder="quantitePart" class="form-control"/>
                 <label for="imgPlat">Upload l'image du plat :</label> <input type="file" name="imagePlat" id="imagePlat" /><br />
             </div>
             <div class="btn-group" role="group">
@@ -116,7 +118,7 @@
 				$("#post-ram").click(function () {postUser($('#user').val(), $('#alias').val())});
 				$("#list-ram").click(function () {listUsers()});
 				$("#get-bdd").click(function () {getUserBdd($('#userdb').val(), $('#aliasdb').val())});*/
-				$("#post-bdd").click(function () {postPlat($('#plat').val())});
+				$("#post-bdd").click(function () {postPlat($('#nom').val(),$('#cuisinier').val(),$('#quantitePart').val())});
 				/*$("#list-bdd").click(function () {listUsersBdd()});
 				$("#read-forall").click(function () {getForAll()});
 				$("#read-byannotation").click(function () {getByAnnotation()});*/
