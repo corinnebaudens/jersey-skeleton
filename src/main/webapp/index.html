@@ -46,7 +46,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="userdb">Déposer un plat </label>
-                <input type="text" name="platdb" id="platdb" placeholder="Nom du plat" class="form-control"/>
+                <input type="text" name="plat" id="plat" placeholder="Nom du plat" class="form-control"/>
                 <label for="imgPlat">Upload l'image du plat :</label> <input type="file" name="imagePlat" id="imagePlat" /><br />
             </div>
             <div class="btn-group" role="group">
@@ -105,14 +105,14 @@
 -->
     <script type="text/javascript">
 			$(document).ready(function() {
-				$("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
+				/*$("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
 				$("#post-ram").click(function () {postUser($('#user').val(), $('#alias').val())});
 				$("#list-ram").click(function () {listUsers()});
-				$("#get-bdd").click(function () {getUserBdd($('#userdb').val(), $('#aliasdb').val())});
-				$("#post-bdd").click(function () {postUserBdd($('#userdb').val(), $('#aliasdb').val(), $('#passwddb').val())});
-				$("#list-bdd").click(function () {listUsersBdd()});
+				$("#get-bdd").click(function () {getUserBdd($('#userdb').val(), $('#aliasdb').val())});*/
+				$("#post-bdd").click(function () {postUser($('#plat').val()});
+				/*$("#list-bdd").click(function () {listUsersBdd()});
 				$("#read-forall").click(function () {getForAll()});
-				$("#read-byannotation").click(function () {getByAnnotation()});
+				$("#read-byannotation").click(function () {getByAnnotation()});*/
 			});
     </script>
 
