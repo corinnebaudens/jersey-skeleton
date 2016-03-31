@@ -9,7 +9,7 @@ public class Plat {
 	
 	public Plat() {}
 	
-	public Plat(String nom, String cuisinier, int id, int quantitePart) {
+	public Plat(int id, String nom, String cuisinier, int quantitePart) {
 		this.nom = nom;
 		this.cuisinier = cuisinier;
 		this.id = id;
