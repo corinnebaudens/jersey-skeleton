@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Jersey Skeleton</title>
+    <title>Les Petits Cuistots</title>
     <meta charset='utf-8'>
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -24,8 +24,39 @@
         </ul>
     </div>
 </nav>
-
 <div class="container">
+  <div class="jumbotron">
+    <h1>Les Petits Cuistots</h1>
+    <p>Commander et Emporter des plats cuisinés, prépaprés par des particuliers passionnés par la cuisine</p>
+  </div>
+ <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="user">Liste des plats : </label>
+                <select>
+				  <option id="choisir" value="choisir">Choisissez un plat</option>
+				  <option id="plat1" value="plat1">Plat1</option>
+				  <option id="plat2" value="plat2">Plat3</option>
+				  <option id="plat3" value="plat3">Plat3</option>
+				</select>
+  
+            </div>
+            
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="userdb">Déposer un plat </label>
+                <input type="text" name="platdb" id="platdb" placeholder="Nom du plat" class="form-control"/>
+                <label for="imgPlat">Upload l'image du plat :</label> <input type="file" name="imagePlat" id="imagePlat" /><br />
+            </div>
+            <div class="btn-group" role="group">
+                <button id="post-bdd" class="btn btn-primary">Valider</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+	<div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -71,6 +102,7 @@
             </div>
         </div>
     </div>
+-->
     <script type="text/javascript">
 			$(document).ready(function() {
 				$("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
@@ -83,5 +115,6 @@
 				$("#read-byannotation").click(function () {getByAnnotation()});
 			});
     </script>
+
 </body>
 </html>
