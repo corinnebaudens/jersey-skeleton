@@ -44,28 +44,29 @@ function getByAnnotation() {
      }
  }
 
-function postUser(name, alias) {
-    postUserGeneric(name, alias, "", "v1/user/");
+function postPlat(nom,cuisinier,quantitePart) {
+    postPlatGeneric(nom,cuisinier,quantitePart,"v1/plat/");
 }
 
 function postUserBdd(name, alias, pwd) {
     postUserGeneric(name, alias, pwd, "v1/userdb/");
 }
 
-function postUserGeneric(name, alias, pwd, url) {
+function postPlatGeneric(nom,cuisinier,quantitePart,url) {
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
 		url : url,
 		dataType : "json",
 		data : JSON.stringify({
-			"name" : name,
-			"alias" : alias,
-			"password" : pwd,
-			"id" : 0
+			"nom" : nom,
+			"cuisinier":cuisinier,
+			"quantitePart":quantitePart
+			
 		}),
 		success : function(data, textStatus, jqXHR) {
-			afficheUser(data);
+			affichePlat(data);
+			
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
@@ -73,12 +74,12 @@ function postUserGeneric(name, alias, pwd, url) {
 	});
 }
 
-function listUsers() {
-    listUsersGeneric("v1/user/");
+function listPlat() {
+    listUsersGeneric("v1/plat/");
 }
 
-function listUsersBdd() {
-    listUsersGeneric("v1/userdb/");
+function listPlatBdd() {
+    listUsersGeneric("v1/plat/");
 }
 
 function listUsersGeneric(url) {
@@ -87,12 +88,12 @@ function listUsersGeneric(url) {
 	});
 }
 
-function afficheUser(data) {
+function affichePlat(data) {
 	console.log(data);
-	$("#reponse").html(data.id + " : <b>" + data.alias + "</b> (" + data.name + ")");
+	$("#reponse").html(data.id + " : <b>" + data.nom  +"</b>"+" : <b>" + data.cuisinier  +"</b>"+" : <b>" + data.quantitePart  +"</b>" );
 }
 
-function afficheListUsers(data) {
+function afficheListPlat(data) {
 	var html = '<ul>';
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
