@@ -44,8 +44,8 @@ function getByAnnotation() {
      }
  }
 
-function postUser(plat) {
-    postUserGeneric(plat,"v1/user/");
+function postPlat(plat) {
+    postUserGeneric(plat,"v1/plat/");
 }
 
 function postUserBdd(name, alias, pwd) {
@@ -86,7 +86,7 @@ function listUsersGeneric(url) {
 
 function afficheUser(data) {
 	console.log(data);
-	$("#reponse").html(data.id + " : <b>" + data.plat  /*"</b> (" + data.name + ")"*/);
+	$("#reponse").html(data.id + " : <b>" + data.plat  +"</b>" );
 }
 
 function afficheListUsers(data) {
