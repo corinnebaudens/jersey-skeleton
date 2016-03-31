@@ -61,12 +61,11 @@ function postPlatGeneric(nom,cuisinier,quantitePart,url) {
 		data : JSON.stringify({
 			"nom" : nom,
 			"cuisinier":cuisinier,
-			"quantitePart":quantitePart,
+			"quantitePart":quantitePart
 			
 		}),
 		success : function(data, textStatus, jqXHR) {
-			//affichePlat(data);
-			afficheListPlat(data);
+			affichePlat(data);
 			
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
