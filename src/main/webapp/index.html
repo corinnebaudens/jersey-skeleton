@@ -24,8 +24,7 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="/">Javascript (Single Page
-						Application)</a></li>
+				<li class="active"><a href="/">Les Petits Cuistots</a></li>
 				<li><a href="/html/user">MVC Template (jsp)</a></li>
 			</ul>
 		</div>
@@ -33,10 +32,10 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Les Petits Cuistots</h1>
-			<p>Commander et Emporter des plats cuisinés, prépaprés par des
+			<p>Commander et Emporter des plats cuisinés, préparés par des
 				particuliers passionnés par la cuisine</p>
 		</div>
-		<br>
+		<!--<br>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="btn-group" role="group">
@@ -63,14 +62,14 @@
 				</div>
 			</div>
 		</div>
-		</br>
+		</br>-->
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
 					<label for="user">Liste des plats : </label> <select>
 						<option id="choisir" value="choisir">Choisissez un plat</option>
 						<option id="plat1" value="plat1">Plat1</option>
-						<option id="plat2" value="plat2">Plat3</option>
+						<option id="plat2" value="plat2">Plat2</option>
 						<option id="plat3" value="plat3">Plat3</option>
 					</select>
 
@@ -84,9 +83,10 @@
 					<input type="text" name="cuisinier" id="cuisinier"
 						placeholder="Nom du cuisinier" class="form-control" /> <input
 						type="text" name="quantitePart" id="quantitePart"
-						placeholder="quantitePart" class="form-control" /> <label
+						placeholder="quantitePart" class="form-control" /> 
+						<!--<label
 						for="imgPlat">Upload l'image du plat :</label> <input type="file"
-						name="imagePlat" id="imagePlat" /><br />
+						name="imagePlat" id="imagePlat" /><br />-->
 				</div>
 				<div class="btn-group" role="group">
 					<button id="post-bdd" class="btn btn-primary">Valider</button>
@@ -162,14 +162,7 @@
             <br/>
             <button id="read-byannotation" class="btn btn-default">Lire /v1/secure/byannotation</button>
         </div>
-    </div>
-     <div class="row" style="margin-top: 1em;">
-        <div class="panel panel-info">
-            <div class="panel-heading">Réponse</div>
-            <div class="panel-body" id="reponse">
-            </div>
-        </div>
-    </div>
+    
 -->
 	<div class="row" style="margin-top: 1em;">
 		<div class="panel panel-info">
@@ -177,36 +170,17 @@
 			<div class="panel-body" id="reponse"></div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		$(document).ready(
-				function() {
-					$("#get-ram").click(function() {
-						getUser($('#user').val(), $('#alias').val())
-					});
-					$("#post-ram").click(function() {
-						postUser($('#user').val(), $('#alias').val())
-					});
-					$("#list-ram").click(function() {
-						listUsers()
-					});
-					$("#get-bdd").click(function() {
-						getUserBdd($('#userdb').val(), $('#aliasdb').val())
-					});
-					$("#post-bdd").click(
-							function() {
-								postUserBdd($('#userdb').val(), $('#aliasdb')
-										.val(), $('#passwddb').val())
-							});
-					$("#list-bdd").click(function() {
-						listUsersBdd()
-					});
-					$("#read-forall").click(function() {
-						getForAll()
-					});
-					$("#read-byannotation").click(function() {
-						getByAnnotation()
-					});
-				});
-	</script>
+	 <script type="text/javascript">
+			$(document).ready(function() {
+				/*$("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
+				$("#post-ram").click(function () {postUser($('#user').val(), $('#alias').val())});
+				$("#list-ram").click(function () {listUsers()});*/
+				$("#get-bdd").click(function () {getPlatBdd($('#nom').val())});
+				$("#post-bdd").click(function () {postPlat($('#nom').val(),$('#cuisinier').val(),$('#quantitePart').val())});
+				/*$("#list-bdd").click(function () {listUsersBdd()});
+				$("#read-forall").click(function () {getForAll()});
+				$("#read-byannotation").click(function () {getByAnnotation()});*/
+			});
+    </script>
 </body>
 </html>

@@ -1,14 +1,14 @@
-function getUser(name) {
-	getUserGeneric(name, "v1/user/");
+function getPlat(nom) {
+	getPlatGeneric(nom, "v1/plat/");
 }
 
-function getUserBdd(name) {
-	getUserGeneric(name, "v1/userdb/");
+function getPlatBdd(nom) {
+	getUserGeneric(nom, "v1/plat/");
 }
 
-function getUserGeneric(name, url) {
-	$.getJSON(url + name, function(data) {
-		afficheUser(data);
+function getPlatGeneric(nom, url) {
+	$.getJSON(url + nom, function(data) {
+		affichePlat(data);
 	});
 }
 
@@ -31,7 +31,7 @@ function getByAnnotation() {
         req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
        },
        success: function (data) {
-        afficheUser(data);
+        affichePlat(data);
        },
        error : function(jqXHR, textStatus, errorThrown) {
        			alert('error: ' + textStatus);
@@ -39,7 +39,7 @@ function getByAnnotation() {
      });
      } else {
      $.getJSON(url, function(data) {
-     	    afficheUser(data);
+     	    affichePlat(data);
         });
      }
  }
@@ -47,11 +47,11 @@ function getByAnnotation() {
 function postPlat(nom,cuisinier,quantitePart) {
     postPlatGeneric(nom,cuisinier,quantitePart,"v1/plat/");
 }
-
+/*
 function postUserBdd(name, alias, pwd) {
     postUserGeneric(name, alias, pwd, "v1/userdb/");
 }
-
+*/
 function postPlatGeneric(nom,cuisinier,quantitePart,url) {
 	$.ajax({
 		type : 'POST',
@@ -84,7 +84,7 @@ function listPlatBdd() {
 
 function listUsersGeneric(url) {
 	$.getJSON(url, function(data) {
-		afficheListUsers(data)
+		afficheListPlats(data)
 	});
 }
 
@@ -93,11 +93,11 @@ function affichePlat(data) {
 	$("#reponse").html(data.id + " : <b>" + data.nom  +"</b>"+" : <b>" + data.cuisinier  +"</b>"+" : <b>" + data.quantitePart  +"</b>" );
 }
 
-function afficheListPlat(data) {
+function afficheListPlats(data) {
 	var html = '<ul>';
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
-		html = html + "<li>"+ data[index].name + "</li>";
+		html = html + "<li>"+ data[index].nom + "</li>";
 	}
 	html = html + "</ul>";
 	$("#reponse").html(html);
