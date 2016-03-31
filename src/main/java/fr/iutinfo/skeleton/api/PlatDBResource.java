@@ -20,7 +20,7 @@ public class PlatDBResource {
 			dao.createPlatTable();
 			dao.insert(new Plat(0,"Margaret Thatcher", "la Dame de fer", 1));
 		} catch (Exception e) {
-			System.out.println("Table déjà là !");
+			logger.debug("Table Plat déjà là !");
 		}
 	}
 	
@@ -35,7 +35,7 @@ public class PlatDBResource {
 	@GET
 	@Path("/{name}")
 	public Plat getPlat(@PathParam("name") String name) {
-		Plat plat = dao.findByName(name);
+		Plat plat = dao.trouveParNom(name);
 		if (plat == null) {
 			throw new WebApplicationException(404);
 		}

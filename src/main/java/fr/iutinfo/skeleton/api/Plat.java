@@ -44,4 +44,7 @@ public class Plat {
 	public String toString() {
 		return nom + " fait par : " + this.cuisinier;
 	}
+	
+	
+	
 }
