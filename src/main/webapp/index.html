@@ -66,15 +66,12 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="user">Liste des plats : </label> <select>
+					<label for="user">Liste des plats : </label> 
+					<select id="selection">
 						<option id="choisir" value="choisir">Choisissez un plat</option>
-						<option id="plat1" value="plat1">Plat1</option>
-						<option id="plat2" value="plat2">Plat2</option>
-						<option id="plat3" value="plat3">Plat3</option>
 					</select>
-
 				</div>
-
+				
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
@@ -171,12 +168,13 @@
 		</div>
 	</div>
 	 <script type="text/javascript">
+	 		document.onload=getPlatBdd($('#nom').val());
 			$(document).ready(function() {
 				/*$("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
 				$("#post-ram").click(function () {postUser($('#user').val(), $('#alias').val())});
 				$("#list-ram").click(function () {listUsers()});*/
-				$("#get-bdd").click(function () {getPlatBdd($('#nom').val())});
 				$("#post-bdd").click(function () {postPlat($('#nom').val(),$('#cuisinier').val(),$('#quantitePart').val())});
+				$("#post-bdd").click(function () {getPlatBdd($('#nom').val())});
 				/*$("#list-bdd").click(function () {listUsersBdd()});
 				$("#read-forall").click(function () {getForAll()});
 				$("#read-byannotation").click(function () {getByAnnotation()});*/

@@ -3,13 +3,23 @@ function getPlat(nom) {
 }
 
 function getPlatBdd(nom) {
-	getUserGeneric(nom, "v1/plat/");
+	getPlatGeneric(nom, "v1/plat/");
 }
 
 function getPlatGeneric(nom, url) {
-	$.getJSON(url + nom, function(data) {
-		affichePlat(data);
-	});
+	$.ajax
+    ({
+      type: "GET",
+      url: url,
+      dataType: 'json'
+    ,
+	 success: function (data) {
+	        chargeListPlats(data);
+	       },
+	 error : function(jqXHR, textStatus, errorThrown) {
+	       			alert('error: ' + textStatus);
+	  }
+});
 }
 
 function getForAll() {
@@ -92,13 +102,17 @@ function affichePlat(data) {
 	console.log(data);
 	$("#reponse").html(data.id + " : <b>" + data.nom  +"</b>"+" : <b>" + data.cuisinier  +"</b>"+" : <b>" + data.quantitePart  +"</b>" );
 }
-
-function afficheListPlats(data) {
-	var html = '<ul>';
+function affichePlatSelection(data) {
+	console.log(data);
+	$("#selection").html("<option>"+data.nom+"</option>" );
+}
+function chargeListPlats(data) {
+	var html = '';
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
-		html = html + "<li>"+ data[index].nom + "</li>";
+		html = html + "<option>"+ data[index].nom + "</option>";
 	}
-	html = html + "</ul>";
-	$("#reponse").html(html);
+	
+	$("#selection").html(html);
+	
 }
