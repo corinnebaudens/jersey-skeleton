@@ -48,8 +48,13 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
+					<label for="user">Role</label><input type="text"
+						name="userdb" id="userdb" placeholder="Role"
+						class="form-control" />
+				</div>
+				<div class="form-group">
 					<label for="user">Login utilisateur</label><input type="text"
-						name="userdb" id="platdb" placeholder="Login utilisateur"
+						name="userdb" id="userdb" placeholder="Login utilisateur"
 						class="form-control" />
 				</div>
 				<div class="form-group">
@@ -112,6 +117,7 @@
 			$(document).ready(function() {
 				$("#post-bdd").click(function () {postPlat($('#nom').val(),$('#cuisinier').val(),$('#quantitePart').val())});
 				$("#post-bdd").click(function () {getPlatBdd($('#nom').val())});
+				$("#user-bdd").click(function () {postUser($('#name').val())});
 				//$("selection").change(function () {eventSelevtion($('#selection').val())});
 			});
     </script>

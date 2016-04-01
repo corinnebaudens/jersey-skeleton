@@ -116,3 +116,88 @@ function chargeListPlats(data) {
 	$("#selection").html(html);
 	
 }
+
+function postUser(role, name, pwd) {
+    postUserGeneric(role, name, pwd, "v1/userdb/");
+}
+
+function postUserGeneric(role, name, pwd, url) {
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : url,
+		dataType : "json",
+		data : JSON.stringify({
+
+			"role":role,
+			"name" :name,
+			"password" :pwd,	
+		}),
+		success : function(data, textStatus, jqXHR) {
+			afficheUser(data);
+			
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			alert('postUser error: ' + textStatus);
+		}
+	});
+}
+
+function getUser(name) {
+	getUserGeneric(name, "v1/user/");
+}
+
+function getUserGeneric(name, url) {
+	$.getJSON(url + name, function(data) {
+		afficheUser(data);
+	});
+}
+
+function getSecure(url) {
+ if($("#userlogin").val() != "") {
+     $.ajax
+     ({
+       type: "GET",
+       url: url,
+       dataType: 'json',
+       beforeSend : function(req) {
+        req.setRequestHeader("Authorization", "Basic " + btoa($("#role").val() + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val())));
+       },
+       success: function (data) {
+        afficheUser(data);
+       },
+       error : function(jqXHR, textStatus, errorThrown) {
+       			alert('error: ' + textStatus);
+       		}
+     });
+     } else {
+     $.getJSON(url, function(data) {
+     	    afficheUser(data);
+        });
+     }
+}
+
+function listUsers() {
+    listUsersGeneric("v1/userdb/");
+}
+
+function listUsersGeneric(url) {
+	$.getJSON(url, function(data) {
+		afficheListUsers(data)
+	});
+}
+
+function afficheUser(data) {
+	console.log(data);
+	$("#reponse").html(data.id + " : <b>" + data.role + "</b> (" + data.name + ")");
+}
+
+function afficheListUsers(data) {
+	var html = '<ul>';
+	var index = 0;
+	for (index = 0; index < data.length; ++index) {
+		html = html + "<li>"+ data[index].name + "</li>";
+	}
+	html = html + "</ul>";
+	$("#reponse").html(html);
+}
