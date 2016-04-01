@@ -22,7 +22,7 @@ public class Helper {
     }
 
     User createUserWithAlias(String name, String alias) {
-        User user = new User(0, name, alias);
+        User user = new User(0, name);
         return createUser(user);
     }
 

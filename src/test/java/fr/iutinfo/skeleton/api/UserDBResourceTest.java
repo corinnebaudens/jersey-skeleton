@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class userDBResourceTest extends JerseyTest {
+public class UserDBResourceTest extends JerseyTest {
     private Helper h;
 
     @Override
@@ -32,13 +32,6 @@ public class userDBResourceTest extends JerseyTest {
         h.createUserWithName("foo");
         User utilisateur = target("/userdb/foo").request().get(User.class);
         assertEquals("foo", utilisateur.getName());
-    }
-
-    @Test
-    public void read_user_should_return_good_alias() {
-        h.createUserWithAlias("richard stallman", "rms");
-        User user = target("/userdb/richard stallman").request().get(User.class);
-        assertEquals("rms", user.getAlias());
     }
 
     @Test

@@ -27,5 +27,12 @@ public interface CommandeDao {
 	@SqlQuery("select * from commandes where idclient = :idclient")
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	List<Commande> listeCdeParClient(@Bind("idclient") int idclient);
-	
+
+	@SqlQuery("select commandes.id, commandes.idclient, commandes.idplat; commandes.quantitecde"
+			+ " from commandes, plat"
+			+ " where plat.idplat = commandes.idplat "
+			+ "and plat.cuisinier = :cuisinier")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	List<Commande> listeCdePourCuisinier(@Bind("cuisinier") String cuisinier);
+
 }
