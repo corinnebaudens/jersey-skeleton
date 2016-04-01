@@ -3,6 +3,8 @@ package fr.iutinfo.skeleton.api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import fr.iutinfo.skeleton.utils.Role;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -13,12 +15,14 @@ import java.util.List;
 public class UserDBResource {
 	private static UserDao dao = BDDFactory.getDbi().open(UserDao.class);
     final static Logger logger = LoggerFactory.getLogger(UserDBResource.class);
+    private Role role ;
 
 
     public UserDBResource() {
 		try {
 			dao.createUserTable();
-			dao.insert(new User(0,"Margaret Thatcher", "la Dame de fer"));
+			role = Role.CUISINIER ;
+			dao.insert(new User(0,"Margaret Thatcher", "la Dame de fer", role));
 		} catch (Exception e) {
 			System.out.println("Table déjà là !");
 		}
