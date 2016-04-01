@@ -16,6 +16,7 @@ public class User implements Principal {
     private String alias;
     private int id = 0;
     private String email;
+    private Role role = Role.CLIENT;
     private String password;
     private String passwdHash;
     private String salt;
@@ -31,6 +32,12 @@ public class User implements Principal {
         this.id = id;
         this.name = name;
         this.alias = alias;
+    }
+    public User(int id, String name, String alias, Role role) {
+        this.id = id;
+        this.name = name;
+        this.alias = alias;
+        this.role = role;
     }
 
     public User() {
