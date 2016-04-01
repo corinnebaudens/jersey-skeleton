@@ -35,11 +35,11 @@
 			<p>Commander et Emporter des plats cuisinés, préparés par des
 				particuliers passionnés par la cuisine</p>
 		</div>
-		<!--<br>
+		<br>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="btn-group" role="group">
-					<button id="post-bdd" class="btn btn-primary">Créer
+					<button id="user-bdd" class="btn btn-primary">Créer
 						utilisateur</button>
 				</div>
 			</div>
@@ -62,7 +62,7 @@
 				</div>
 			</div>
 		</div>
-		</br>-->
+		</br>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
@@ -70,6 +70,15 @@
 					<select id="selection">
 						<option id="choisir" value="choisir">Choisissez un plat</option>
 					</select>
+				</div>
+				<div id="infos">
+					<!--  <label id="quantite">Cuisinier,Quantité</label> </br> -->
+					<label id="quantComand">Quelle quantité voulez vous commander?</label> 
+					<input type="text"  id="qtCommand"
+						placeholder="Quantité" class="form-control" /> 
+				</div>
+				<div class="btn-group" role="group">
+					<button id="Commander-bdd" class="btn btn-primary">Commander</button>
 				</div>
 				
 			</div>
@@ -91,76 +100,7 @@
 			</div>
 		</div>
 	</div>
-	<!--
-	
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="user">Liste des plats : </label> <select>
-						<option id="choisir" value="choisir">Choisissez un plat</option>
-						<option id="plat1" value="plat1">Plat1</option>
-						<option id="plat2" value="plat2">Plat3</option>
-						<option id="plat3" value="plat3">Plat3</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="userdb">Déposer un plat </label> <input type="text"
-						name="platdb" id="platdb" placeholder="Nom du plat"
-						class="form-control" /> <label for="imgPlat">Upload
-						l'image du plat :</label> <input type="file" name="imagePlat"
-						id="imagePlat" /><br />
-				</div>
-				<div class="btn-group" role="group">
-					<button id="post-bdd" class="btn btn-primary">Valider</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
-
-
-	<!--<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="user">Utilisateur en mémoire : </label>
-                <input type="text" name="user" id="user" placeholder="Nom ?" class="form-control"/>
-                <input type="text" name="user" id="alias" placeholder="Surnom ?" class="form-control"/>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="get-ram" class="btn btn-default">Lire</button>
-                <button id="post-ram" class="btn btn-primary">Sauver</button>
-                <button id="list-ram" class="btn btn-warning">Lister</button>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="userdb">Utilisateur en base de données : </label>
-                <input type="text" name="userdb" id="userdb" placeholder="Nom ?" class="form-control"/>
-                <input type="text" name="user" id="aliasdb" placeholder="Surnom ?" class="form-control"/>
-                <input type="password" name="user" id="passwddb" class="form-control"/>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="get-bdd" class="btn btn-default">Lire</button>
-                <button id="post-bdd" class="btn btn-primary">Sauver</button>
-                <button id="list-bdd" class="btn btn-warning">Lister</button>
-            </div>
-        </div>
-    </div>
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-12">
-            <label for="user">S'identifier : </label>
-            <input type="text" name="userdb" id="userlogin" placeholder="Login" class="form-control"/>
-            <input type="password" name="user" id="passwdlogin" class="form-control"/>
-            <br/>
-            <button id="read-forall" class="btn btn-default">Lire /v1/secure/forall</button>
-            <br/>
-            <button id="read-byannotation" class="btn btn-default">Lire /v1/secure/byannotation</button>
-        </div>
-    
--->
 	<div class="row" style="margin-top: 1em;">
 		<div class="panel panel-info">
 			<div class="panel-heading">Réponse</div>
@@ -170,18 +110,9 @@
 	 <script type="text/javascript">
 	 		document.onload=getPlatBdd($('#nom').val());
 			$(document).ready(function() {
-				/*$("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
-				$("#post-ram").click(function () {postUser($('#user').val(), $('#alias').val())});
-				$("#list-ram").click(function () {listUsers()});*/
-<<<<<<< HEAD
-				//$("selection").onChange(function () {getPlatBdd($('#nom').val())});
-=======
->>>>>>> 8967840f4cf6d3cbacfb8b822790b3ffce07599b
 				$("#post-bdd").click(function () {postPlat($('#nom').val(),$('#cuisinier').val(),$('#quantitePart').val())});
 				$("#post-bdd").click(function () {getPlatBdd($('#nom').val())});
-				/*$("#list-bdd").click(function () {listUsersBdd()});
-				$("#read-forall").click(function () {getForAll()});
-				$("#read-byannotation").click(function () {getByAnnotation()});*/
+				//$("selection").change(function () {eventSelevtion($('#selection').val())});
 			});
     </script>
 </body>
