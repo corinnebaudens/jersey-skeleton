@@ -15,12 +15,12 @@ public class User implements Principal {
     private String name;
     private int id = 0;
     private String email;
-    private Role role = Role.CLIENT;
+    private Role role;
     private String password;
     private String passwdHash;
     private String salt;
 
-    private static User anonymous = new User(-1, "Anonymous");
+    private static User anonymous = new User(-1, "Anonymous", Role.CUISINIER);
 
     public User(int id, String name) {
         this.id = id;
@@ -103,11 +103,7 @@ public class User implements Principal {
     public String toString() {
         return id + ": "+ name + " <" + email + ">";
     }
-
-   
-
     
-
     public String getSalt() {
         if (salt == null) {
             salt = generateSalt();

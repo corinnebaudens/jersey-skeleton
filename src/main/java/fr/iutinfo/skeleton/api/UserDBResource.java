@@ -19,7 +19,7 @@ public class UserDBResource {
 		try {
 			dao.createUserTable();
 			role = Role.CUISINIER ;
-			dao.insert(new User(0,"Margaret Thatcher", "la Dame de fer", role));
+			dao.insert(new User(0,"Margaret Thatcher", role));
 		} catch (Exception e) {
 			System.out.println("Table déjà là !");
 		}
