@@ -26,6 +26,6 @@ public interface CommandeDao {
 
 	@SqlQuery("select * from commandes where idclient = :idclient")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	List<Commande> listeCdeParClient();
+	List<Commande> listeCdeParClient(@Bind("idclient") int idclient);
 	
 }
