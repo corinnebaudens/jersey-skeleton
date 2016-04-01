@@ -31,5 +31,12 @@ public class PlatResourceTest extends JerseyTest {
 		});
 		Assert.assertEquals(1, plats.size());
 	}
-
+	
+	@Test
+	public void should_have_a_cuisinier_when_get_from_bdd() {
+		Plat plats = target("/plat/1").request().get(Plat.class);
+		Assert.assertEquals("cuisinier", plats.getCuisinier());
+	}
+	
+	
 }
