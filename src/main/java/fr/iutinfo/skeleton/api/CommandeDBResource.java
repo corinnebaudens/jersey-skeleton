@@ -58,13 +58,13 @@ public class CommandeDBResource {
 		int sumQuantiteCde = dao.quantiteCommande(id_plat);
 		return sumQuantiteCde;
 	}
-	
+	/*
 	@GET
 	@Path("/{id_client}")
 	public List<Commande> getListeCdeParClient(@PathParam("idclient") int id_client) {
 		List<Commande> listeCde = dao.listeCdeParClient(id_client);
 		return listeCde;
-	}
+	}*/
 	
 //	@GET
 //	public List<Commande> getAllCommandes(@QueryParam("q") String query) {

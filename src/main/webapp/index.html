@@ -25,7 +25,7 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="/">Les Petits Cuistots</a></li>
-				<li><a href="/html/user">MVC Template (jsp)</a></li>
+				
 			</ul>
 		</div>
 	</nav>
@@ -36,15 +36,16 @@
 				particuliers passionnés par la cuisine</p>
 		</div>
 		<br>
+		
 		<div class="row">
 			<div class="col-md-6">
 				<div class="btn-group" role="group">
-					<button id="user-bdd" class="btn btn-primary">Créer
+					<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#divCreerUser">Créer
 						utilisateur</button>
 				</div>
 			</div>
 		</div>
-		</br>
+		<div id="divCreerUser" class="collapse">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
@@ -67,7 +68,8 @@
 				</div>
 			</div>
 		</div>
-		</br>
+		</div>
+		
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
@@ -95,9 +97,7 @@
 						placeholder="Nom du cuisinier" class="form-control" /> <input
 						type="text" name="quantitePart" id="quantitePart"
 						placeholder="quantitePart" class="form-control" /> 
-						<!--<label
-						for="imgPlat">Upload l'image du plat :</label> <input type="file"
-						name="imagePlat" id="imagePlat" /><br />-->
+					
 				</div>
 				<div class="btn-group" role="group">
 					<button id="post-bdd" class="btn btn-primary">Valider</button>
@@ -108,7 +108,7 @@
 
 	<div class="row" style="margin-top: 1em;">
 		<div class="panel panel-info">
-			<div class="panel-heading">Réponse</div>
+			<div class="panel-heading"></div>
 			<div class="panel-body" id="reponse"></div>
 		</div>
 	</div>
