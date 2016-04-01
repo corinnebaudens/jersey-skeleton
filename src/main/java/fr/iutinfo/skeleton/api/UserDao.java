@@ -33,5 +33,10 @@ public interface UserDao {
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	User findByRole(@Bind("role") int role);
 
+/*	@SqlQuery("select * from commandes where cuisinier = :cuisinier")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	User voirCommandesCuistot(@Bind("cuisinier") String cuisinier);
+*/
+	
 	void close();
 }
