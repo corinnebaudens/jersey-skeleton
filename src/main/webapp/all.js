@@ -1,15 +1,25 @@
-function getUser(name) {
-	getUserGeneric(name, "v1/user/");
+function getPlat(nom) {
+	getPlatGeneric(nom, "v1/plat/");
 }
 
-function getUserBdd(name) {
-	getUserGeneric(name, "v1/userdb/");
+function getPlatBdd(nom) {
+	getPlatGeneric(nom, "v1/plat/");
 }
 
-function getUserGeneric(name, url) {
-	$.getJSON(url + name, function(data) {
-		afficheUser(data);
-	});
+function getPlatGeneric(nom, url) {
+	$.ajax
+    ({
+      type: "GET",
+      url: url,
+      dataType: 'json'
+    ,
+	 success: function (data) {
+	        chargeListPlats(data);
+	       },
+	 error : function(jqXHR, textStatus, errorThrown) {
+	       			alert('error: ' + textStatus);
+	  }
+});
 }
 
 function getForAll() {
@@ -31,7 +41,7 @@ function getByAnnotation() {
         req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
        },
        success: function (data) {
-        afficheUser(data);
+        affichePlat(data);
        },
        error : function(jqXHR, textStatus, errorThrown) {
        			alert('error: ' + textStatus);
@@ -39,7 +49,7 @@ function getByAnnotation() {
      });
      } else {
      $.getJSON(url, function(data) {
-     	    afficheUser(data);
+     	    affichePlat(data);
         });
      }
  }
@@ -47,11 +57,11 @@ function getByAnnotation() {
 function postPlat(nom,cuisinier,quantitePart) {
     postPlatGeneric(nom,cuisinier,quantitePart,"v1/plat/");
 }
-
+/*
 function postUserBdd(name, alias, pwd) {
     postUserGeneric(name, alias, pwd, "v1/userdb/");
 }
-
+*/
 function postPlatGeneric(nom,cuisinier,quantitePart,url) {
 	$.ajax({
 		type : 'POST',
@@ -84,7 +94,7 @@ function listPlatBdd() {
 
 function listUsersGeneric(url) {
 	$.getJSON(url, function(data) {
-		afficheListUsers(data)
+		afficheListPlats(data)
 	});
 }
 
@@ -92,13 +102,17 @@ function affichePlat(data) {
 	console.log(data);
 	$("#reponse").html(data.id + " : <b>" + data.nom  +"</b>"+" : <b>" + data.cuisinier  +"</b>"+" : <b>" + data.quantitePart  +"</b>" );
 }
-
-function afficheListPlat(data) {
-	var html = '<ul>';
+function affichePlatSelection(data) {
+	console.log(data);
+	$("#selection").html("<option>"+data.nom+"</option>" );
+}
+function chargeListPlats(data) {
+	var html = '';
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
-		html = html + "<li>"+ data[index].name + "</li>";
+		html = html + "<option>"+ data[index].nom + "</option>";
 	}
-	html = html + "</ul>";
-	$("#reponse").html(html);
+	
+	$("#selection").html(html);
+	
 }
