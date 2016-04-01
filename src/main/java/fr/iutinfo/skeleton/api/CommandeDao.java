@@ -23,5 +23,9 @@ public interface CommandeDao {
 	
 	@SqlUpdate("drop table if exists commandes")
 	void dropCommandeTable();
+
+	@SqlQuery("select * from commandes where idclient = :idclient")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	List<Commande> listeCdeParClient();
 	
 }
