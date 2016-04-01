@@ -2,7 +2,6 @@ package fr.iutinfo.skeleton.api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;

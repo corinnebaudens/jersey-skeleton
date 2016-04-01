@@ -23,13 +23,14 @@ public class PlatResourceTest extends JerseyTest {
 		dao.dropPlatTable();
 		dao.createPlatTable();
 		dao.insert(new Plat(0, "nom du plat", "cuisinier", 7));
+		dao.insert(new Plat(1, "nom du plat", "cuisinier", 5));
 	}
 
 	@Test
 	public void should_return_many_plats_when_get_plat() {
 		List<Plat> plats = target("/plat").request().get(new GenericType<List<Plat>>() {
 		});
-		Assert.assertEquals(1, plats.size());
+		Assert.assertEquals(2, plats.size());
 	}
 	
 	@Test
@@ -38,5 +39,12 @@ public class PlatResourceTest extends JerseyTest {
 		Assert.assertEquals("cuisinier", plats.getCuisinier());
 	}
 	
+	@Test
+	public void should_return_many_plats_when_search_plat() {
+		// target("/plat?q=nom")
+		List<Plat> plats = target("/plat").queryParam("q", "nom").request().get(new GenericType<List<Plat>>() {
+		});
+		Assert.assertEquals(2, plats.size());
+	}
 	
 }
