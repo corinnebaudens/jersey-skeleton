@@ -10,3 +10,4 @@ target/
 *.iml
 # database file
 data.db
+.Rhistory

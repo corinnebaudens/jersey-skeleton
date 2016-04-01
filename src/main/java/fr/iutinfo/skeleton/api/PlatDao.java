@@ -11,16 +11,16 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface PlatDao {
-	@SqlUpdate("create table plats (id integer primary key autoincrement, nom varchar(50))")
+	@SqlUpdate("create table plats (id integer primary key autoincrement, nom varchar(50), cuisinier varchar(50),quantitePart integer(2))")
 	void createPlatTable();
 
-	@SqlUpdate("insert into plats (nom) values (:nom)")
+	@SqlUpdate("insert into plats (nom,cuisinier,quantitePart) values (:nom, :cuisinier, :quantitePart)")
 	@GetGeneratedKeys
 	int insert(@BindBean() Plat plat);
 
-	@SqlQuery("select * from plats where nom = :nom")
+	@SqlQuery("select * from plats where nom like :nom")
     @RegisterMapperFactory(BeanMapperFactory.class)
-	Plat trouveParNom(@Bind("nom") String nom);
+	List<Plat> trouveParNom(@Bind("nom") String nom);
 
 	@SqlUpdate("drop table if exists plats")
 	void dropPlatTable(); 
