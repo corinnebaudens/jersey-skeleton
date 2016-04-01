@@ -110,7 +110,7 @@ function chargeListPlats(data) {
 	var html = '';
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
-		html = html + "<option>"+ data[index].nom + "</option>";
+		html = html + "<option>"+ data[index].nom+" Chef:"+data[index].cuisinier+" quantité:"+data[index].quantitePart+"</option>";
 	}
 	
 	$("#selection").html(html);
