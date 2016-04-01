@@ -1,4 +1,4 @@
-package fr.iutinfo.skeleton.utils;
+package fr.iutinfo.skeleton.api;
 
 public enum Role {
 	
